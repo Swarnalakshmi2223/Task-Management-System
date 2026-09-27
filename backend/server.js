@@ -14,6 +14,7 @@ if (!process.env.MONGO_URI) {
 
 // ─── Step 4: Initialize Express app ──────────────────────────────────────────
 const app  = express();
+app.disable('x-powered-by');
 const PORT = process.env.PORT || 5000;
 
 // ─── Step 5: Middleware ───────────────────────────────────────────────────────

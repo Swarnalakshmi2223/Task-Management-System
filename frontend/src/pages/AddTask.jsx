@@ -235,7 +235,7 @@ function AddTask({ onBack }) {
                   >
                     {loading ? (
                       <>
-                        <span className="spinner-border spinner-border-sm" role="status" />
+                        <output className="spinner-border spinner-border-sm" />{' '}
                         Saving...
                       </>
                     ) : (

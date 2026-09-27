@@ -3,18 +3,12 @@ import { describe, it, expect } from 'vitest';
 import Navbar from '../../components/Navbar';
 
 describe('Navbar', () => {
-  it('renders the brand name "TaskFlow"', () => {
+  it.each([
+    ['brand name "TaskFlow"', 'TaskFlow'],
+    ['brand subtitle', 'AI-Assisted Task Management'],
+    ['MERN Stack badge', 'MERN Stack'],
+  ])('renders the %s', (_, text) => {
     render(<Navbar />);
-    expect(screen.getByText('TaskFlow')).toBeInTheDocument();
-  });
-
-  it('renders the brand subtitle', () => {
-    render(<Navbar />);
-    expect(screen.getByText('AI-Assisted Task Management')).toBeInTheDocument();
-  });
-
-  it('renders the MERN Stack badge', () => {
-    render(<Navbar />);
-    expect(screen.getByText('MERN Stack')).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
 });

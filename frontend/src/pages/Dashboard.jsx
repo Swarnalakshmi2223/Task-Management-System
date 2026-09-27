@@ -204,9 +204,9 @@ function Dashboard({ onAddTask, onEditTask }) {
       {/* ── Loading State ─────────────────────────────────────────────────── */}
       {loading && (
         <div className="loading-state">
-          <div className="spinner-border text-primary" role="status">
+          <output className="spinner-border text-primary">
             <span className="visually-hidden">Loading...</span>
-          </div>
+          </output>
           <p>Fetching your tasks...</p>
         </div>
       )}

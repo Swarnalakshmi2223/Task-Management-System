@@ -47,7 +47,7 @@ function TaskCard({ task, onDelete, onEdit, onStatusChange, deletingId, updating
               <option value="Completed">Completed</option>
             </select>
             {isUpdating && (
-              <span className="spinner-border spinner-border-sm text-primary" role="status" />
+              <output className="spinner-border spinner-border-sm text-primary" />
             )}
           </div>
         </div>
@@ -73,7 +73,7 @@ function TaskCard({ task, onDelete, onEdit, onStatusChange, deletingId, updating
             >
               {isDeleting ? (
                 <>
-                  <span className="spinner-border spinner-border-sm" role="status" />
+                  <output className="spinner-border spinner-border-sm" />{' '}
                   Deleting...
                 </>
               ) : (

@@ -14,17 +14,15 @@ function EditTask({ taskId, onBack }) {
 
   // ── UI State ──────────────────────────────────────────────────────────────
   const [errors,     setErrors]     = useState({});
-  const [fetching,   setFetching]   = useState(true);
+  const [fetching,   setFetching]   = useState(Boolean(taskId));
   const [loading,    setLoading]    = useState(false);
-  const [fetchError, setFetchError] = useState('');
+  const [fetchError, setFetchError] = useState(taskId ? '' : 'No task ID provided.');
   const [apiError,   setApiError]   = useState('');
   const [success,    setSuccess]    = useState(false);
 
   // ── Fetch existing task on mount ──────────────────────────────────────────
   useEffect(() => {
     if (!taskId) {
-      setFetchError('No task ID provided.');
-      setFetching(false);
       return;
     }
 
@@ -104,9 +102,9 @@ function EditTask({ taskId, onBack }) {
     return (
       <div className="container py-5">
         <div className="loading-state">
-          <div className="spinner-border text-primary" role="status">
+          <output className="spinner-border text-primary">
             <span className="visually-hidden">Loading task...</span>
-          </div>
+          </output>
           <p>Loading task data...</p>
         </div>
       </div>
@@ -298,7 +296,7 @@ function EditTask({ taskId, onBack }) {
                   >
                     {loading ? (
                       <>
-                        <span className="spinner-border spinner-border-sm" role="status" />
+                        <output className="spinner-border spinner-border-sm" />{' '}
                         Saving...
                       </>
                     ) : (
